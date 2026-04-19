@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login | Botanical Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-highest": "#dae3ef",
+                      "primary-fixed-dim": "#9fe697",
+                      "secondary-fixed-dim": "#c8dac1",
+                      "on-primary": "#eaffe2",
+                      "tertiary": "#60622d",
+                      "on-error-container": "#6e1400",
+                      "surface-variant": "#dae3ef",
+                      "tertiary-container": "#fcfeb9",
+                      "outline": "#737c85",
+                      "outline-variant": "#aab3bd",
+                      "on-tertiary-fixed": "#4e501d",
+                      "surface-bright": "#f7f9ff",
+                      "secondary": "#53634f",
+                      "on-surface-variant": "#576069",
+                      "on-primary-fixed-variant": "#266829",
+                      "on-background": "#2b333c",
+                      "inverse-on-surface": "#999da3",
+                      "tertiary-dim": "#545622",
+                      "secondary-fixed": "#d6e8ce",
+                      "on-error": "#fff7f6",
+                      "error-dim": "#791903",
+                      "primary": "#2a6c2c",
+                      "surface-container-high": "#e2e9f2",
+                      "on-surface": "#2b333c",
+                      "error": "#a73b21",
+                      "tertiary-fixed-dim": "#eeefac",
+                      "surface-dim": "#d2dbe6",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container": "#e8eef7",
+                      "surface": "#f7f9ff",
+                      "primary-dim": "#1d5f21",
+                      "primary-fixed": "#acf4a4",
+                      "on-tertiary": "#fcfdb9",
+                      "on-secondary-container": "#465643",
+                      "on-primary-container": "#1b5e20",
+                      "on-secondary-fixed": "#344331",
+                      "background": "#f7f9ff",
+                      "on-primary-fixed": "#004b0f",
+                      "primary-container": "#acf4a4",
+                      "on-secondary": "#ecfee4",
+                      "surface-tint": "#2a6c2c",
+                      "secondary-dim": "#475744",
+                      "secondary-container": "#d6e8ce",
+                      "on-tertiary-container": "#60622d",
+                      "inverse-surface": "#0a0f13",
+                      "on-tertiary-fixed-variant": "#6b6d37",
+                      "surface-container-low": "#eff4fc",
+                      "error-container": "#fd795a",
+                      "tertiary-fixed": "#fcfeb9",
+                      "inverse-primary": "#b2faa9",
+                      "on-secondary-fixed-variant": "#50604c"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Manrope"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .primary-gradient {
+            background: linear-gradient(135deg, #2a6c2c 0%, #1d5f21 100%);
+        }
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        .ambient-shadow {
+            box-shadow: 0px 12px 32px rgba(43,51,60,0.06);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface overflow-hidden">
+<div class="relative min-h-screen flex items-center justify-center p-6">
+<!-- Background Editorial Element (Asymmetric) -->
+<div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+<div class="absolute -top-24 -left-24 w-96 h-96 bg-primary-container/20 rounded-full blur-[120px]"></div>
+<div class="absolute top-1/2 -right-48 w-full max-w-2xl h-[600px] bg-secondary-container/10 rounded-full blur-[150px] -translate-y-1/2"></div>
+</div>
+<!-- Login Container -->
+<main class="relative z-10 w-full max-w-md">
+<div class="bg-surface-container-lowest ambient-shadow rounded-xl p-10 flex flex-col items-center">
+<!-- Branding -->
+<div class="mb-10 text-center">
+<div class="inline-flex items-center justify-center w-16 h-16 bg-surface-container-high rounded-xl mb-6">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="potted_plant">potted_plant</span>
+</div>
+<h1 class="font-headline font-extrabold text-3xl tracking-tighter text-on-background mb-2">Botanical Architect</h1>
+<p class="text-on-surface-variant font-medium text-sm tracking-wide uppercase">Admin Management Suite</p>
+</div>
+<!-- Form -->
+<form class="w-full space-y-6">
+<!-- Email Field -->
+<div class="space-y-2">
+<label class="block text-xs font-bold uppercase tracking-wider text-on-surface-variant ml-1" for="email">Email Address</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline-variant group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="alternate_email">alternate_email</span>
+</div>
+<input class="w-full bg-surface-container-highest border-none rounded-lg py-3.5 pl-12 pr-4 text-on-surface focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all placeholder:text-outline-variant" id="email" name="email" placeholder="name@architect.botany" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-2">
+<div class="flex justify-between items-center px-1">
+<label class="block text-xs font-bold uppercase tracking-wider text-on-surface-variant" for="password">Password</label>
+<a class="text-xs font-semibold text-primary hover:text-primary-dim transition-colors active:scale-95 duration-150" href="#">Forgot Password?</a>
+</div>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline-variant group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="lock">lock</span>
+</div>
+<input class="w-full bg-surface-container-highest border-none rounded-lg py-3.5 pl-12 pr-4 text-on-surface focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all placeholder:text-outline-variant" id="password" name="password" placeholder="••••••••••••" type="password"/>
+<button class="absolute inset-y-0 right-0 pr-4 flex items-center text-outline-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+<!-- Remember Me Toggle (Subtle) -->
+<div class="flex items-center ml-1">
+<input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary" id="remember" type="checkbox"/>
+<label class="ml-2 text-sm text-on-surface-variant" for="remember">Keep me logged in for 30 days</label>
+</div>
+<!-- Submit Button -->
+<button class="w-full primary-gradient text-on-primary font-bold py-4 rounded-lg shadow-lg shadow-primary/20 active:scale-95 transition-all duration-200 flex items-center justify-center gap-2 group" type="submit">
+<span>Sign In</span>
+<span class="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+<!-- Footer Context -->
+<div class="mt-10 flex flex-col items-center">
+<div class="flex items-center gap-2 px-3 py-1 bg-surface-container-high rounded-full mb-4">
+<span class="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">System Status: Operational</span>
+</div>
+<p class="text-[11px] text-outline-variant font-medium text-center leading-relaxed">
+                        Authorized access only. Use of this system constitutes agreement <br/>
+                        to the Botanical Architect Security Policy.
+                    </p>
+</div>
+</div>
+<!-- Visual Editorial Texture (Floating Card) -->
+<div class="absolute -bottom-12 -right-20 hidden lg:block w-48 h-48 rounded-xl overflow-hidden shadow-2xl rotate-6 group">
+<img alt="Botanical detail" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="Close-up of a vibrant green Monstera leaf with intricate water droplets and soft morning sunlight filtering through architectural shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpST58kO0tpjzmUePSCnhfh52pSmCw5L2adu48fKsZKlGVca_pQQK2PgZV_kvW07wxaVjXzSxIwyARYk08Si8DEhCO_iH2-HckN9yKwsWNTaHwrK9ksUoVipROmcpMSnu15wwXzlCf4Z522Z8CTwTtS9FD60NESi1A0VPL2VaU8m01a-Lt46AD4mGS_0_cfNuwM9k7xBzSzXsjg_yLpfy2DZAn6t9gtkTTj8tHI1LF8CLRIyYJoaejSEaY4pjxQ-epqL16hk9BVFQ"/>
+<div class="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
+</div>
+</main>
+<!-- Global Navigation Suppression (Contextual Rule Applied) -->
+<!-- SideNavBar and TopAppBar are excluded as this is a transactional Login screen -->
+</div>
+<!-- Decorative Bottom Metadata -->
+<footer class="fixed bottom-6 left-0 right-0 text-center pointer-events-none">
+<div class="inline-flex items-center gap-4 text-outline-variant opacity-40">
+<span class="text-[10px] font-bold uppercase tracking-[0.2em]">v2.4.0-ESTATE</span>
+<div class="w-1 h-1 bg-outline-variant rounded-full"></div>
+<span class="text-[10px] font-bold uppercase tracking-[0.2em]">©2024 Botanical Architect</span>
+</div>
+</footer>
+</body></html>

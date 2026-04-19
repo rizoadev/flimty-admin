@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agent Management | Botanical Architect</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-highest": "#dae3ef",
+                      "primary-fixed-dim": "#9fe697",
+                      "secondary-fixed-dim": "#c8dac1",
+                      "on-primary": "#eaffe2",
+                      "tertiary": "#60622d",
+                      "on-error-container": "#6e1400",
+                      "surface-variant": "#dae3ef",
+                      "tertiary-container": "#fcfeb9",
+                      "outline": "#737c85",
+                      "outline-variant": "#aab3bd",
+                      "on-tertiary-fixed": "#4e501d",
+                      "surface-bright": "#f7f9ff",
+                      "secondary": "#53634f",
+                      "on-surface-variant": "#576069",
+                      "on-primary-fixed-variant": "#266829",
+                      "on-background": "#2b333c",
+                      "inverse-on-surface": "#999da3",
+                      "tertiary-dim": "#545622",
+                      "secondary-fixed": "#d6e8ce",
+                      "on-error": "#fff7f6",
+                      "error-dim": "#791903",
+                      "primary": "#2a6c2c",
+                      "surface-container-high": "#e2e9f2",
+                      "on-surface": "#2b333c",
+                      "error": "#a73b21",
+                      "tertiary-fixed-dim": "#eeefac",
+                      "surface-dim": "#d2dbe6",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container": "#e8eef7",
+                      "surface": "#f7f9ff",
+                      "primary-dim": "#1d5f21",
+                      "primary-fixed": "#acf4a4",
+                      "on-tertiary": "#fcfdb9",
+                      "on-secondary-container": "#465643",
+                      "on-primary-container": "#1b5e20",
+                      "on-secondary-fixed": "#344331",
+                      "background": "#f7f9ff",
+                      "on-primary-fixed": "#004b0f",
+                      "primary-container": "#acf4a4",
+                      "on-secondary": "#ecfee4",
+                      "surface-tint": "#2a6c2c",
+                      "secondary-dim": "#475744",
+                      "secondary-container": "#d6e8ce",
+                      "on-tertiary-container": "#60622d",
+                      "inverse-surface": "#0a0f13",
+                      "on-tertiary-fixed-variant": "#6b6d37",
+                      "surface-container-low": "#eff4fc",
+                      "error-container": "#fd795a",
+                      "tertiary-fixed": "#fcfeb9",
+                      "inverse-primary": "#b2faa9",
+                      "on-secondary-fixed-variant": "#50604c"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Manrope"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            background: rgba(247, 249, 255, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        .primary-gradient {
+            background: linear-gradient(135deg, #2a6c2c, #1d5f21);
+        }
+        .ambient-shadow {
+            box-shadow: 0px 12px 32px rgba(43,51,60,0.06);
+        }
+        .card-shadow {
+            box-shadow: 0px 4px 16px rgba(43,51,60,0.04);
+        }
+      </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col py-4 z-50 bg-[#f7f9ff] dark:bg-slate-950 h-screen w-64 border-r border-slate-200 dark:border-slate-800 tonal-shift bg-surface-container-high">
+<div class="px-6 mb-8 flex items-center justify-center">
+<img alt="Flimty Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uh-wjZKE9hqU7S9qZIgozjSgaPCTFSazFhgmFhJ4tSRXiyG_-MzGrfo_QwgMeT_6ONG5gOggaChF1Woa8orvSigIQU-GyyqWIWM6_P-qlIMEyUFtmAqjgY94A9CC-qylw2MhvS2Ir1pQr_yg8tnXtmmHnX3Ot10EJdoRm7DxEwXTX8cXaJCbP9hTmGlg0_GnpRDVLK8AVTcT2G9yBUEnLY6C81FPUFiBlLb-sgEbvmjZOFJva426e1haaIBBQvN-oFg1tbu2UlBiA"/>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-slate-600 dark:text-slate-400 mx-2 my-1 px-4 py-3 flex items-center gap-3 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label text-sm font-medium">Dashboard</span>
+</a>
+<a class="text-slate-600 dark:text-slate-400 mx-2 my-1 px-4 py-3 flex items-center gap-3 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label text-sm font-medium">Users</span>
+</a>
+<a class="bg-[#2a6c2c] text-white rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="support_agent" style="font-variation-settings: 'FILL' 1;">support_agent</span>
+<span class="font-label text-sm font-medium">Agents</span>
+</a>
+<a class="text-slate-600 dark:text-slate-400 mx-2 my-1 px-4 py-3 flex items-center gap-3 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="web">web</span>
+<span class="font-label text-sm font-medium">Landing Content</span>
+</a>
+</nav>
+<div class="px-4 mb-6">
+<button class="w-full py-3 primary-gradient text-white rounded-lg font-label text-sm font-semibold flex items-center justify-center gap-2 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                Add New Resource
+            </button>
+</div>
+<div class="pt-4 border-t border-outline-variant/10">
+<a class="text-slate-600 dark:text-slate-400 mx-2 my-1 px-4 py-3 flex items-center gap-3 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="font-label text-sm font-medium">Profile</span>
+</a>
+<a class="text-error mx-2 my-1 px-4 py-3 flex items-center gap-3 hover:bg-error-container/10 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label text-sm font-medium">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-6 h-16 sticky top-0 z-40 bg-[#f7f9ff] dark:bg-slate-900 shadow-sm no-border bg-surface-container-low">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">search</span>
+<input class="w-full bg-surface-container-highest border-none rounded-full py-2 pl-12 pr-4 text-sm font-body focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search agents by name, ID or license..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors relative active:scale-95 duration-200">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400" data-icon="settings">settings</span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant/20 mx-2"></div>
+<div class="flex items-center gap-3 pl-2">
+<div class="text-right hidden sm:block">
+<p class="font-headline font-bold text-sm tracking-tight text-[#2a6c2c]">Admin Profile</p>
+<p class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant">Super Admin</p>
+</div>
+<img alt="Admin Profile" class="w-10 h-10 rounded-full object-cover border-2 border-primary-fixed" data-alt="professional headshot of a mature man with a friendly expression in a modern office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBevU6TULszu8mtRzmW1mzly0J4o0ARVnpNj30EcgtruGDauSWntx_M5sxdpC7pL40JAwTX3HVNeuADJcyZmsI-zOKvD7-yoi3xf-wOueyxeZffy18wMJLTXreh9P_3sbZIo6Pt6aSpLri6Jz5nsg3F7pvj534VdFiSFpr8iSI3JtiPMgHfenJHCKlPmrTAj8EM60j0MHQeFHge6U3objA7GT8D_pxTxdMXYtFdfZdjGDYOv6b05JzPB1S0cA9tNdAhEVi0SBfVIdM"/>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="p-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+<div>
+<p class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-1">Ecosystem Hub</p>
+<h2 class="font-headline font-extrabold text-3xl tracking-tighter text-on-surface">Agent Management</h2>
+<p class="text-on-surface-variant text-sm mt-1">Overseeing 124 active field agents and botanical consultants.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2.5 bg-surface-container-high rounded-lg text-sm font-semibold hover:bg-surface-container-highest transition-colors active:scale-95">
+<span class="material-symbols-outlined text-lg">filter_list</span>
+                        Advanced Filters
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2.5 primary-gradient text-white rounded-lg text-sm font-semibold active:scale-95 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-lg">download</span>
+                        Export Directory
+                    </button>
+</div>
+</div>
+<!-- Dashboard Bento Grid (Mini Stats) -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/10">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+</div>
+<span class="text-[10px] font-bold text-primary px-2 py-1 bg-primary-container rounded">ACTIVE</span>
+</div>
+<p class="text-on-surface-variant text-xs font-semibold uppercase tracking-wider">Verified Agents</p>
+<h3 class="font-headline font-extrabold text-2xl mt-1">112</h3>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/10">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-tertiary-container text-on-tertiary-container rounded-lg">
+<span class="material-symbols-outlined">pending_actions</span>
+</div>
+<span class="text-[10px] font-bold text-tertiary px-2 py-1 bg-tertiary-container rounded">PENDING</span>
+</div>
+<p class="text-on-surface-variant text-xs font-semibold uppercase tracking-wider">Under Review</p>
+<h3 class="font-headline font-extrabold text-2xl mt-1">12</h3>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/10">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-secondary-container text-on-secondary-container rounded-lg">
+<span class="material-symbols-outlined">public</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-xs font-semibold uppercase tracking-wider">Active Regions</p>
+<h3 class="font-headline font-extrabold text-2xl mt-1">8</h3>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/10">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary-container text-on-primary-container rounded-lg">
+<span class="material-symbols-outlined">storefront</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-xs font-semibold uppercase tracking-wider">Marketplace Links</p>
+<h3 class="font-headline font-extrabold text-2xl mt-1">452</h3>
+</div>
+</div>
+<!-- Filter Bar -->
+<div class="bg-surface-container-lowest p-4 rounded-xl card-shadow mb-6 flex flex-wrap items-center gap-6">
+<div class="flex-1 min-w-[200px]">
+<p class="text-[10px] font-bold uppercase text-on-surface-variant mb-1 ml-1">Region</p>
+<select class="w-full bg-surface-container border-none rounded-lg py-2 text-sm font-medium focus:ring-primary/20">
+<option>All Regions</option>
+<option>Pacific Northwest</option>
+<option>Appalachian Basin</option>
+<option>Coastal Wetlands</option>
+<option>Urban Metro East</option>
+</select>
+</div>
+<div class="flex-1 min-w-[200px]">
+<p class="text-[10px] font-bold uppercase text-on-surface-variant mb-1 ml-1">Specialization</p>
+<select class="w-full bg-surface-container border-none rounded-lg py-2 text-sm font-medium focus:ring-primary/20">
+<option>All Specializations</option>
+<option>Xeriscaping</option>
+<option>Hydroponics</option>
+<option>Arboriculture</option>
+<option>Permaculture</option>
+</select>
+</div>
+<div class="flex-1 min-w-[200px]">
+<p class="text-[10px] font-bold uppercase text-on-surface-variant mb-1 ml-1">Status</p>
+<div class="flex gap-2">
+<button class="px-4 py-2 bg-primary text-white rounded-lg text-xs font-bold">Active</button>
+<button class="px-4 py-2 bg-surface-container text-on-surface-variant rounded-lg text-xs font-bold hover:bg-surface-container-high transition-colors">Pending</button>
+<button class="px-4 py-2 bg-surface-container text-on-surface-variant rounded-lg text-xs font-bold hover:bg-surface-container-high transition-colors">Suspended</button>
+</div>
+</div>
+</div>
+<!-- Agents Table Content -->
+<div class="bg-surface-container-lowest rounded-2xl card-shadow overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant/10">
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Agent Profile</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Region &amp; License</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Performance</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Marketplace</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Agent Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<img alt="Agent Avatar" class="w-12 h-12 rounded-xl object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="portrait of a confident woman landscape architect with curly hair wearing a linen shirt outdoors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBT49OC5rwa28EQGHoDFj-PJvxBuMZINv1s5OjCqDtcXrCUIZabw2AwGF2OM3rCuj_0USJG6fTmX5Id3VtZZU-a0vHgyfSgjzeOAU_-1DtT5CbXud6pJJRUdl4mVohxk-58uwWrlJxGEIfXLfqAIOUwYDNZU0_iwD_gJYKTYPO5tkt3_OkGbz9mb04Qk3naaV-LG285cdnf3a7uds0eXHTFa9ecmGuaGkdsu9r62_K3QKFs_UJG9rjPKcqb83UlfAcneN5_SmG9Jj4"/>
+<div>
+<p class="font-headline font-bold text-on-surface">Elena Vance</p>
+<p class="text-xs text-on-surface-variant">elena.v@botanicalarch.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-semibold">Pacific Northwest</span>
+<span class="text-[10px] font-bold text-on-surface-variant/70 uppercase">LIC #PNW-4921-BA</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="flex items-center text-tertiary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold ml-1">4.9</span>
+</div>
+<span class="text-xs text-on-surface-variant">(128 Projects)</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-tertiary-container text-tertiary font-bold text-[10px] rounded uppercase">8 Active Ads</span>
+<span class="px-2 py-1 bg-surface-container-high text-on-surface-variant font-bold text-[10px] rounded uppercase">Verified</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex justify-end gap-2">
+<button class="p-2 rounded-lg hover:bg-primary-container hover:text-primary transition-all active:scale-90" title="Manage Marketplace">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-surface-container-highest transition-all active:scale-90" title="View Details">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-surface-container-highest transition-all active:scale-90">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Agent Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<img alt="Agent Avatar" class="w-12 h-12 rounded-xl object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="headshot of a man with spectacles and a neat beard, looking professional, natural daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgvn07x0Jn6hfH1pob4Phnv6UrgNSald9V86kV4rhLVlUuXk2hKXwzFU2J1CiDidPpKTknn8LRUT_m3JeM_4iM8JNFmD1bEqU-8s5doMiDGXg2uguMbFC4VE9WvK_AZSXyfUwZUH2Fzo5_Eqarol_kT-FvE1BRs95TUhuOgYTRb3b_xkfjh3Ra9ptmR_NBWL7D47cTHIEudTUuEbAnOGS7hffiymDLmWCNLILzaTlbq6dZh4d2eAO635zEZH6nF5Ryo-0GF-6drbA"/>
+<div>
+<p class="font-headline font-bold text-on-surface">Julian Thorne</p>
+<p class="text-xs text-on-surface-variant">j.thorne@botanicalarch.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-semibold">Coastal Wetlands</span>
+<span class="text-[10px] font-bold text-on-surface-variant/70 uppercase">LIC #CW-8820-BA</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="flex items-center text-tertiary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold ml-1">4.7</span>
+</div>
+<span class="text-xs text-on-surface-variant">(92 Projects)</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-tertiary-container text-tertiary font-bold text-[10px] rounded uppercase">3 Active Ads</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex justify-end gap-2">
+<button class="p-2 rounded-lg hover:bg-primary-container hover:text-primary transition-all active:scale-90" title="Manage Marketplace">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-surface-container-highest transition-all active:scale-90" title="View Details">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-surface-container-highest transition-all active:scale-90">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Agent Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<img alt="Agent Avatar" class="w-12 h-12 rounded-xl object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="portrait of a woman scientist in a laboratory environment with soft focused greenery in the background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOJRvwgqvvkptHp5J7wJlELUuIms-4qPn7PHEJOZjHS_YzqrnT_LYghmWRrg4XuAl8R5aru1jmVtko8kwAs8LZtLARPLweJT3PbQrfWo1RA-TllLM1FEedSfJrvaZrsULGKR5kRp2tzFdBhO_hfvMWzG-TzWuO6cmp46cZ8yZwe_gxbqeWGVyrBmaEqaP5HRwcZznc1xxPoxYrt8cY7otGc9QnEpmKAae6LsiIN7wjhdXWiMOW1qBT_ETlD2l61TtPso4JBd8TwEI"/>
+<div>
+<p class="font-headline font-bold text-on-surface">Maya Ishikawa</p>
+<p class="text-xs text-on-surface-variant">m.ishi@botanicalarch.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-semibold">Urban Metro East</span>
+<span class="text-[10px] font-bold text-on-surface-variant/70 uppercase">LIC #UME-1102-BA</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="flex items-center text-tertiary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold ml-1">5.0</span>
+</div>
+<span class="text-xs text-on-surface-variant">(215 Projects)</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-tertiary-container text-tertiary font-bold text-[10px] rounded uppercase">12 Active Ads</span>
+<span class="px-2 py-1 bg-surface-container-high text-on-surface-variant font-bold text-[10px] rounded uppercase">Top Rated</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex justify-end gap-2">
+<button class="p-2 rounded-lg hover:bg-primary-container hover:text-primary transition-all active:scale-90" title="Manage Marketplace">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-surface-container-highest transition-all active:scale-90" title="View Details">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-surface-container-highest transition-all active:scale-90">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="px-6 py-4 bg-surface-container-low flex justify-between items-center">
+<p class="text-xs text-on-surface-variant font-medium">Showing 1-10 of 124 agents</p>
+<div class="flex gap-2">
+<button class="p-2 rounded-lg hover:bg-surface-container-highest disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center bg-primary text-white rounded-lg text-xs font-bold">1</button>
+<button class="w-8 h-8 flex items-center justify-center hover:bg-surface-container-highest rounded-lg text-xs font-bold transition-colors">2</button>
+<button class="w-8 h-8 flex items-center justify-center hover:bg-surface-container-highest rounded-lg text-xs font-bold transition-colors">3</button>
+<button class="p-2 rounded-lg hover:bg-surface-container-highest">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB - Only for relevant screen -->
+<button class="fixed bottom-8 right-8 primary-gradient text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl active:scale-90 transition-all z-50">
+<span class="material-symbols-outlined text-2xl" data-icon="person_add">person_add</span>
+</button>
+</body></html>

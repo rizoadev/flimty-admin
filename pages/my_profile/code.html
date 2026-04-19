@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Profile - Botanical Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#dae3ef",
+                    "primary-fixed-dim": "#9fe697",
+                    "secondary-fixed-dim": "#c8dac1",
+                    "on-primary": "#eaffe2",
+                    "tertiary": "#60622d",
+                    "on-error-container": "#6e1400",
+                    "surface-variant": "#dae3ef",
+                    "tertiary-container": "#fcfeb9",
+                    "outline": "#737c85",
+                    "outline-variant": "#aab3bd",
+                    "on-tertiary-fixed": "#4e501d",
+                    "surface-bright": "#f7f9ff",
+                    "secondary": "#53634f",
+                    "on-surface-variant": "#576069",
+                    "on-primary-fixed-variant": "#266829",
+                    "on-background": "#2b333c",
+                    "inverse-on-surface": "#999da3",
+                    "tertiary-dim": "#545622",
+                    "secondary-fixed": "#d6e8ce",
+                    "on-error": "#fff7f6",
+                    "error-dim": "#791903",
+                    "primary": "#2a6c2c",
+                    "surface-container-high": "#e2e9f2",
+                    "on-surface": "#2b333c",
+                    "error": "#a73b21",
+                    "tertiary-fixed-dim": "#eeefac",
+                    "surface-dim": "#d2dbe6",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#e8eef7",
+                    "surface": "#f7f9ff",
+                    "primary-dim": "#1d5f21",
+                    "primary-fixed": "#acf4a4",
+                    "on-tertiary": "#fcfdb9",
+                    "on-secondary-container": "#465643",
+                    "on-primary-container": "#1b5e20",
+                    "on-secondary-fixed": "#344331",
+                    "background": "#f7f9ff",
+                    "on-primary-fixed": "#004b0f",
+                    "primary-container": "#acf4a4",
+                    "on-secondary": "#ecfee4",
+                    "surface-tint": "#2a6c2c",
+                    "secondary-dim": "#475744",
+                    "secondary-container": "#d6e8ce",
+                    "on-tertiary-container": "#60622d",
+                    "inverse-surface": "#0a0f13",
+                    "on-tertiary-fixed-variant": "#6b6d37",
+                    "surface-container-low": "#eff4fc",
+                    "error-container": "#fd795a",
+                    "tertiary-fixed": "#fcfeb9",
+                    "inverse-primary": "#b2faa9",
+                    "on-secondary-fixed-variant": "#50604c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {},
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.8);
+        }
+        .primary-gradient {
+            background: linear-gradient(135deg, #2a6c2c 0%, #1d5f21 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-background font-body min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col py-4 z-50 bg-[#f7f9ff] dark:bg-slate-950 h-screen w-64 border-r border-slate-200 dark:border-slate-800 font-['Inter'] text-sm font-medium tonal-shift bg-surface-container-high flat no shadows">
+<div class="px-6 mb-8">
+<h1 class="font-['Manrope'] font-extrabold text-[#2a6c2c] text-xl tracking-tighter">Botanical Admin</h1>
+<p class="text-on-surface-variant text-xs">Urban Conservatory</p>
+</div>
+<nav class="flex-grow">
+<a class="text-slate-600 dark:text-slate-400 mx-2 my-1 px-4 py-3 flex items-center gap-3 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="text-slate-600 dark:text-slate-400 mx-2 my-1 px-4 py-3 flex items-center gap-3 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Users</span>
+</a>
+<a class="text-slate-600 dark:text-slate-400 mx-2 my-1 px-4 py-3 flex items-center gap-3 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+<span>Agents</span>
+</a>
+<a class="text-slate-600 dark:text-slate-400 mx-2 my-1 px-4 py-3 flex items-center gap-3 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="web">web</span>
+<span>Landing Content</span>
+</a>
+</nav>
+<div class="mt-auto">
+<div class="px-4 mb-4">
+<button class="w-full primary-gradient text-on-primary py-3 px-4 rounded-lg font-bold flex items-center justify-center gap-2 active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                    Add New Resource
+                </button>
+</div>
+<a class="bg-[#2a6c2c] text-white rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+<span>Profile</span>
+</a>
+<a class="text-slate-600 dark:text-slate-400 mx-2 my-1 px-4 py-3 flex items-center gap-3 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-6 h-16 sticky top-0 z-40 bg-[#f7f9ff] dark:bg-slate-900 shadow-sm no-border bg-surface-container-low">
+<div class="flex items-center flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-12 pr-4 py-2 bg-surface-container-highest border-none rounded-full text-sm focus:ring-2 focus:ring-primary" placeholder="Search parameters..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-primary-fixed">
+<img alt="Admin Profile" class="w-full h-full object-cover" data-alt="professional portrait of a man with a friendly expression in a modern architectural office setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-wzEQwpJ4UK-6sXUkJgXWs2U_lZGSQeCEbVNHqPlbjR3WbDRzy65SxdVrHL5Jgd5JLCEVDPF54s_O5WWdV6juDJPiEBrexJUlueukHxUA_FoXIImg-EHb5lUb1c_YesEwXgrn5SxMfpTLxfAExOJt8GykCjgmg1OVJhqlgb81JeRQh-x7Ho6-CMXqtZreWSSovrZjkeYmYYyoNLoo3HcSeTtW5TnWnfnWFlvVKT4XuzzTqt29uuwJCSuAVV1pwybTa0BVMWn2Y0I"/>
+</div>
+</div>
+</header>
+<!-- Profile Page Content -->
+<div class="p-8 max-w-5xl mx-auto">
+<div class="mb-10">
+<span class="text-[10px] font-bold uppercase tracking-wider text-primary">System Administration</span>
+<h2 class="font-headline text-3xl font-extrabold text-on-surface tracking-tighter mt-1">My Profile</h2>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Bento Column: Personal Info -->
+<div class="lg:col-span-8 space-y-8">
+<!-- Basic Information Card -->
+<section class="bg-surface-container-lowest p-8 rounded-xl shadow-[0px_4px_16px_rgba(43,51,60,0.04)]">
+<div class="flex items-center gap-4 mb-8">
+<div class="bg-primary-container p-2 rounded-lg">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="badge">badge</span>
+</div>
+<h3 class="font-headline text-xl font-bold">Personal Information</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant ml-1">Full Name</label>
+<input class="w-full px-4 py-3 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary text-on-surface" type="text" value="Julian Vanderberg"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant ml-1">Email Address</label>
+<input class="w-full px-4 py-3 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary text-on-surface" type="email" value="julian.v@botanicalarchitect.com"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant ml-1">Admin Role</label>
+<div class="relative">
+<select class="w-full px-4 py-3 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary text-on-surface appearance-none">
+<option>Senior Architect</option>
+<option>System Administrator</option>
+<option>Content Curator</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant ml-1">Location</label>
+<input class="w-full px-4 py-3 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary text-on-surface" type="text" value="Stockholm, Sweden"/>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-surface-container-high flex justify-end">
+<button class="primary-gradient text-on-primary px-6 py-2.5 rounded-lg font-bold text-sm active:scale-95 transition-transform">
+                                Save Changes
+                            </button>
+</div>
+</section>
+<!-- Security Card -->
+<section class="bg-surface-container-lowest p-8 rounded-xl shadow-[0px_4px_16px_rgba(43,51,60,0.04)]">
+<div class="flex items-center gap-4 mb-8">
+<div class="bg-tertiary-container p-2 rounded-lg">
+<span class="material-symbols-outlined text-on-tertiary-container" data-icon="lock">lock</span>
+</div>
+<h3 class="font-headline text-xl font-bold">Security &amp; Access</h3>
+</div>
+<div class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant ml-1">Current Password</label>
+<input class="w-full px-4 py-3 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary text-on-surface" type="password" value="••••••••••••"/>
+</div>
+<div></div> <!-- Spacer -->
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant ml-1">New Password</label>
+<input class="w-full px-4 py-3 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary text-on-surface" placeholder="Enter new password" type="password"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant ml-1">Confirm New Password</label>
+<input class="w-full px-4 py-3 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary text-on-surface" placeholder="Repeat new password" type="password"/>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg flex items-start gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="info">info</span>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+                                    Password must contain at least 12 characters, including one uppercase letter, one special symbol, and one numeric value to maintain Conservatory Protocol.
+                                </p>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-surface-container-high flex justify-end">
+<button class="bg-surface-container-high text-on-surface px-6 py-2.5 rounded-lg font-bold text-sm hover:bg-surface-container-highest transition-colors active:scale-95">
+                                Update Password
+                            </button>
+</div>
+</section>
+</div>
+<!-- Bento Column: Sidebar Profile Actions -->
+<div class="lg:col-span-4 space-y-8">
+<!-- Profile Photo Card -->
+<section class="bg-surface-container-lowest p-8 rounded-xl shadow-[0px_4px_16px_rgba(43,51,60,0.04)] text-center">
+<div class="relative inline-block group mb-6">
+<div class="w-32 h-32 rounded-full overflow-hidden ring-4 ring-primary-fixed-dim">
+<img alt="Admin Profile" class="w-full h-full object-cover" data-alt="close-up portrait of a designer with short dark hair and a beard against a soft daylight office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOP2bldAZFVVAHhgIEW7a1nKzbjLFOyT6aHwodd_T2hwtQpu2XqDtKyxyilFN4lUOYbRE7SwAU1c9dbMqtANBoT6tB7viJNVm0NRU1DxRNo_HkAnlTbRp22oW1BviHXI6n8raVAL5RsjWz5seSW13fPAfHWtZ_JYZ-Y5hEcVzeim4mCEcRKtzYXptWbS-d7m86cUkoFj-uA5V3jWwW4NDzD6NuN_AXBj6-O9RcdhTa8bo1vcSKRZzsIieH1uyefMc4cx6iTFy_K1w"/>
+</div>
+<button class="absolute bottom-1 right-1 bg-primary text-on-primary w-10 h-10 rounded-full flex items-center justify-center shadow-lg border-4 border-surface-container-lowest hover:scale-105 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-sm" data-icon="photo_camera">photo_camera</span>
+</button>
+</div>
+<h4 class="font-headline text-lg font-bold text-on-surface">Julian Vanderberg</h4>
+<p class="text-sm text-on-surface-variant mb-6">Last active: 14 mins ago</p>
+<button class="w-full border border-outline-variant text-on-surface-variant py-2.5 rounded-lg text-sm font-medium hover:bg-surface-container-low transition-colors active:scale-95">
+                            Change Avatar
+                        </button>
+</section>
+<!-- Account Status Card -->
+<section class="bg-surface-container-lowest p-6 rounded-xl shadow-[0px_4px_16px_rgba(43,51,60,0.04)]">
+<h4 class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-4">Account Status</h4>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-sm text-on-surface-variant">Membership</span>
+<span class="px-2 py-1 bg-tertiary-container text-on-tertiary-container text-[10px] font-extrabold rounded uppercase">Lifetime Elite</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-on-surface-variant">Two-Factor Auth</span>
+<span class="flex items-center gap-1 text-primary font-bold text-sm">
+<span class="material-symbols-outlined text-sm" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+                                    Enabled
+                                </span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-on-surface-variant">Data Usage</span>
+<span class="text-sm font-medium text-on-surface">4.2 GB / 10 GB</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-primary h-full w-[42%]"></div>
+</div>
+</div>
+</section>
+<!-- Notification Preferences -->
+<section class="bg-surface-container-lowest p-6 rounded-xl shadow-[0px_4px_16px_rgba(43,51,60,0.04)]">
+<h4 class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-4">Email Notifications</h4>
+<div class="space-y-4">
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="text-sm text-on-surface group-hover:text-primary transition-colors">Project Updates</span>
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="text-sm text-on-surface group-hover:text-primary transition-colors">Security Alerts</span>
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="text-sm text-on-surface group-hover:text-primary transition-colors">Weekly Reports</span>
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</label>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+</body></html>

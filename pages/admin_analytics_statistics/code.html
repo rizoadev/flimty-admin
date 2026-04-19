@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Botanical Architect Admin - Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .headline { font-family: 'Manrope', sans-serif; }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface": "#2b333c",
+                      "on-background": "#2b333c",
+                      "on-surface-variant": "#576069",
+                      "on-primary-container": "#1b5e20",
+                      "surface-variant": "#dae3ef",
+                      "on-secondary-fixed": "#344331",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-container": "#acf4a4",
+                      "surface-container-high": "#e2e9f2",
+                      "on-primary-fixed": "#004b0f",
+                      "surface-container-highest": "#dae3ef",
+                      "surface-bright": "#f7f9ff",
+                      "on-primary-fixed-variant": "#266829",
+                      "primary-fixed-dim": "#9fe697",
+                      "surface-container": "#e8eef7",
+                      "on-tertiary-fixed-variant": "#6b6d37",
+                      "error-dim": "#791903",
+                      "surface-container-low": "#eff4fc",
+                      "tertiary-dim": "#545622",
+                      "on-tertiary-fixed": "#4e501d",
+                      "surface-tint": "#2a6c2c",
+                      "on-secondary-container": "#465643",
+                      "tertiary": "#60622d",
+                      "background": "#f7f9ff",
+                      "tertiary-fixed": "#fcfeb9",
+                      "outline-variant": "#aab3bd",
+                      "primary-dim": "#1d5f21",
+                      "surface-dim": "#d2dbe6",
+                      "surface": "#f7f9ff",
+                      "primary": "#2a6c2c",
+                      "error-container": "#fd795a",
+                      "on-primary": "#eaffe2",
+                      "error": "#a73b21",
+                      "on-error": "#fff7f6",
+                      "secondary-dim": "#475744",
+                      "on-secondary-fixed-variant": "#50604c",
+                      "on-secondary": "#ecfee4",
+                      "inverse-on-surface": "#999da3",
+                      "on-tertiary": "#fcfdb9",
+                      "inverse-primary": "#b2faa9",
+                      "tertiary-fixed-dim": "#eeefac",
+                      "primary-fixed": "#acf4a4",
+                      "inverse-surface": "#0a0f13",
+                      "secondary": "#53634f",
+                      "outline": "#737c85",
+                      "on-error-container": "#6e1400",
+                      "on-tertiary-container": "#60622d",
+                      "secondary-fixed": "#d6e8ce",
+                      "tertiary-container": "#fcfeb9",
+                      "secondary-container": "#d6e8ce",
+                      "secondary-fixed-dim": "#c8dac1"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              }
+            }
+          }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-screen flex flex-col p-4 z-50 bg-[#f7f9ff] dark:bg-slate-900 h-screen w-64 border-r border-slate-200/50 dark:border-slate-800/50 shadow-sm font-['Manrope'] font-semibold text-sm">
+<div class="mb-8 px-2">
+<h1 class="text-lg font-black text-[#2a6c2c] uppercase tracking-widest">Botanical Architect</h1>
+<p class="text-[10px] uppercase tracking-wider text-on-surface-variant/70 mt-1">Urban Conservatory Admin</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-[#2b333c] dark:text-slate-400 hover:text-[#2a6c2c] hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-all active:scale-[0.97]" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[#2b333c] dark:text-slate-400 hover:text-[#2a6c2c] hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-all active:scale-[0.97]" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>Agent Management</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-[#2a6c2c]/10 text-[#2a6c2c] dark:bg-[#2a6c2c]/20 dark:text-[#4ade80] rounded-lg transition-all active:scale-[0.97]" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[#2b333c] dark:text-slate-400 hover:text-[#2a6c2c] hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-all active:scale-[0.97]" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span>Reports</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[#2b333c] dark:text-slate-400 hover:text-[#2a6c2c] hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-all active:scale-[0.97]" href="#">
+<span class="material-symbols-outlined">terminal</span>
+<span>System Logs</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-800">
+<button class="w-full bg-[#2a6c2c] text-white py-2.5 rounded-lg font-bold flex items-center justify-center gap-2 mb-4 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm">contact_support</span>
+<span>Support Center</span>
+</button>
+<a class="flex items-center gap-3 px-3 py-2 text-[#2b333c] dark:text-slate-400 hover:text-[#2a6c2c] transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<main class="pl-64 min-h-screen">
+<!-- TopAppBar Shell -->
+<header class="flex justify-between items-center px-6 py-3 w-full sticky top-0 bg-[#f7f9ff] dark:bg-slate-950 z-40">
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-highest rounded-full border-none focus:ring-2 focus:ring-primary w-64 text-sm font-body" placeholder="Search analytics..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors active:scale-95">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors active:scale-95">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-container overflow-hidden">
+<img alt="Admin Avatar" class="w-full h-full object-cover" data-alt="professional headshot of a smiling administrator in a well-lit studio setting with soft background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4W-YZWVZApdPEikViD6xIdQcUt8vIazuopcVP7gtQAV1N0grRQAre_UMUR8EVdSYW2sd4dOpIecg6js6Tal84-atUSlIwaFlQ-7q3_bVe0EPmpnfejMf2ShVNHR0bWxDiZ4wnc60_kPTxABsQ4_8cEorOFFgXGm0vU6DjqnfRFgZrF3YpOx5dxertIvbhBUkU8dv1nprfYNugO6EFd5y5nLSlH3z_RSQnOGQ_s9HTHbh8XOJghgGl33cTa5pHU_ImIYsz2JqmKHs"/>
+</div>
+</div>
+</header>
+<!-- Page Canvas -->
+<div class="px-8 py-6 space-y-8">
+<!-- Page Header -->
+<div class="flex flex-col">
+<span class="text-[10px] font-bold uppercase tracking-wider text-primary">Performance Overview</span>
+<h2 class="text-3xl font-extrabold tracking-tighter text-on-surface mt-1">Analytics Dashboard</h2>
+</div>
+<!-- KPI Summary Cards: Bento Style -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0px_4px_16px_rgba(43,51,60,0.04)] border-l-4 border-primary">
+<p class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Total Clicks</p>
+<div class="flex items-end justify-between mt-2">
+<h3 class="text-2xl font-bold text-on-surface">128,492</h3>
+<span class="flex items-center text-primary text-xs font-bold">
+<span class="material-symbols-outlined text-sm">arrow_upward</span> 12.4%
+                        </span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0px_4px_16px_rgba(43,51,60,0.04)]">
+<p class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Total Visitors</p>
+<div class="flex items-end justify-between mt-2">
+<h3 class="text-2xl font-bold text-on-surface">42,910</h3>
+<span class="flex items-center text-primary text-xs font-bold">
+<span class="material-symbols-outlined text-sm">arrow_upward</span> 8.2%
+                        </span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0px_4px_16px_rgba(43,51,60,0.04)]">
+<p class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Total Leads</p>
+<div class="flex items-end justify-between mt-2">
+<h3 class="text-2xl font-bold text-on-surface">3,124</h3>
+<span class="flex items-center text-error text-xs font-bold">
+<span class="material-symbols-outlined text-sm">arrow_downward</span> 2.1%
+                        </span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0px_4px_16px_rgba(43,51,60,0.04)]">
+<p class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Conversion Rate</p>
+<div class="flex items-end justify-between mt-2">
+<h3 class="text-2xl font-bold text-on-surface">7.28%</h3>
+<span class="flex items-center text-primary text-xs font-bold">
+<span class="material-symbols-outlined text-sm">arrow_upward</span> 4.5%
+                        </span>
+</div>
+</div>
+</section>
+<!-- Main Charts Row -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Historical Performance Chart -->
+<div class="lg:col-span-2 bg-surface-container-lowest p-8 rounded-xl shadow-[0px_4px_16px_rgba(43,51,60,0.04)] flex flex-col">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h3 class="text-xl font-bold text-on-surface">Historical Performance</h3>
+<p class="text-sm text-on-surface-variant">Growth trajectory of clicks and leads</p>
+</div>
+<div class="flex gap-2">
+<button class="px-4 py-1.5 text-xs font-bold bg-surface-container-high rounded-full">7 Days</button>
+<button class="px-4 py-1.5 text-xs font-bold bg-primary text-white rounded-full">30 Days</button>
+</div>
+</div>
+<!-- Visual Chart Placeholder -->
+<div class="flex-1 relative min-h-[300px] flex items-end gap-2 px-2">
+<div class="absolute inset-0 grid grid-rows-5 pointer-events-none">
+<div class="border-b border-slate-100"></div>
+<div class="border-b border-slate-100"></div>
+<div class="border-b border-slate-100"></div>
+<div class="border-b border-slate-100"></div>
+<div class="border-b border-slate-100"></div>
+</div>
+<div class="flex-1 bg-primary/20 h-[40%] rounded-t-lg relative group transition-all hover:bg-primary/40">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-white text-[10px] py-1 px-2 rounded hidden group-hover:block whitespace-nowrap">8.2k Clicks</div>
+</div>
+<div class="flex-1 bg-primary/20 h-[55%] rounded-t-lg relative group transition-all hover:bg-primary/40"></div>
+<div class="flex-1 bg-primary/20 h-[45%] rounded-t-lg relative group transition-all hover:bg-primary/40"></div>
+<div class="flex-1 bg-primary/20 h-[70%] rounded-t-lg relative group transition-all hover:bg-primary/40"></div>
+<div class="flex-1 bg-primary h-[85%] rounded-t-lg relative group transition-all hover:opacity-80">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-white text-[10px] py-1 px-2 rounded hidden group-hover:block whitespace-nowrap">14.1k Clicks</div>
+</div>
+<div class="flex-1 bg-primary/20 h-[65%] rounded-t-lg relative group transition-all hover:bg-primary/40"></div>
+<div class="flex-1 bg-primary/20 h-[50%] rounded-t-lg relative group transition-all hover:bg-primary/40"></div>
+<div class="flex-1 bg-primary/20 h-[75%] rounded-t-lg relative group transition-all hover:bg-primary/40"></div>
+<div class="flex-1 bg-primary/20 h-[90%] rounded-t-lg relative group transition-all hover:bg-primary/40"></div>
+<div class="flex-1 bg-primary/20 h-[60%] rounded-t-lg relative group transition-all hover:bg-primary/40"></div>
+</div>
+<div class="mt-4 flex justify-between text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">
+<span>Jan 01</span>
+<span>Jan 10</span>
+<span>Jan 20</span>
+<span>Jan 30</span>
+</div>
+</div>
+<!-- Leads Breakdown Pie Chart -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0px_4px_16px_rgba(43,51,60,0.04)]">
+<h3 class="text-xl font-bold text-on-surface mb-6">Leads Breakdown</h3>
+<div class="relative w-48 h-48 mx-auto mb-8">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<circle class="stroke-surface-container" cx="18" cy="18" fill="none" r="16" stroke-width="4"></circle>
+<circle class="stroke-primary" cx="18" cy="18" fill="none" r="16" stroke-dasharray="70 100" stroke-width="4"></circle>
+<circle class="stroke-primary-container" cx="18" cy="18" fill="none" r="16" stroke-dasharray="25 100" stroke-dashoffset="-70" stroke-width="4"></circle>
+<circle class="stroke-tertiary" cx="18" cy="18" fill="none" r="16" stroke-dasharray="5 100" stroke-dashoffset="-95" stroke-width="4"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-3xl font-extrabold text-on-surface">3.1k</span>
+<span class="text-[10px] font-bold uppercase text-on-surface-variant">Total Leads</span>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center text-sm">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span>Organic Search</span>
+</div>
+<span class="font-bold">70%</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-primary-container"></div>
+<span>Paid Ads</span>
+</div>
+<span class="font-bold">25%</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-tertiary"></div>
+<span>Referrals</span>
+</div>
+<span class="font-bold">5%</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Map and Top Agents Section -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Agent Distribution Map -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0px_4px_16px_rgba(43,51,60,0.04)] h-full overflow-hidden relative min-h-[400px]">
+<div class="mb-4">
+<h3 class="text-xl font-bold text-on-surface">Persebaran Agent</h3>
+<p class="text-sm text-on-surface-variant">Real-time geographic distribution of active botanical agents</p>
+</div>
+<div class="absolute inset-0 top-24">
+<img alt="Regional Map" class="w-full h-full object-cover grayscale brightness-110 opacity-40" data-alt="stylized architectural topographic map showing urban layout with subtle green highlighted zones and pinpoint markers" data-location="Jakarta" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLLUxxS84NIN4qvyinICXq6Xix8d1pEADzEdzyxVecMpPpVISwR1-CSk1Iwyj_Hbn2cKqoSr18IY9mALeW_jfNMZ_XylkvNCZs-dASLfKOTgyIFXcMAQRAvgsniFObXQ6z24dWteX5wFADA0pMsr8tJBclhMSSzp9zSfELzhqIPXAyjwbB1bTEYJ9r2FoXI6sQGkq1kcR79ZT9Jb9VsLFgWBwOqHTTRwdkF955qlaHHqzSc_K4uwuqHcBbMO0eB4HSChBBtZc22Go"/>
+<div class="absolute top-1/4 left-1/3 w-4 h-4 bg-primary rounded-full border-2 border-white shadow-lg flex items-center justify-center">
+<div class="w-full h-full bg-primary rounded-full animate-ping opacity-75"></div>
+</div>
+<div class="absolute top-1/2 left-1/2 w-4 h-4 bg-primary rounded-full border-2 border-white shadow-lg flex items-center justify-center">
+<div class="w-full h-full bg-primary rounded-full animate-ping opacity-75"></div>
+</div>
+<div class="absolute bottom-1/4 right-1/4 w-4 h-4 bg-primary rounded-full border-2 border-white shadow-lg flex items-center justify-center">
+<div class="w-full h-full bg-primary rounded-full animate-ping opacity-75"></div>
+</div>
+</div>
+<div class="absolute bottom-6 left-6 glass-effect p-4 rounded-lg shadow-xl border border-white/20">
+<p class="text-xs font-bold uppercase tracking-tighter text-primary">Active Hotspot</p>
+<p class="text-lg font-extrabold text-on-surface">Greater Jakarta Metro</p>
+<p class="text-[10px] text-on-surface-variant">142 Active Agents currently on-site</p>
+</div>
+</div>
+<!-- Top Agents Table -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0px_4px_16px_rgba(43,51,60,0.04)] h-full">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-xl font-bold text-on-surface">Top Agents</h3>
+<button class="text-primary text-xs font-bold hover:underline">View All</button>
+</div>
+<div class="space-y-4">
+<!-- Agent Card -->
+<div class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden">
+<img alt="Agent" class="w-full h-full object-cover" data-alt="professional portrait of a young male landscape architect in smart casual attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYAX6m4UZzVsQNYFBjnoGYhaTleU6Q0ZaG05Ds7b7yHRbl2Ii4jmM59ASGrCC78E-y27dltIN4m30WfOUuwVWGPiGXouJE-guAyNwV8fOfLXBY5HiDhsgbwpFFX5hk9hRb9tVmA0YL0nIFo5FlpSTNEN8HWeY7ncMquTpPa0nuGgPmjLUTC21lbqU9l_W2JuY5RVZCtZNHtMiIZPyR82Kv66tiErvJrcWoiSM8m3BmTwRaLCzWK2lOvmYZZ_hiLA-U25nh-GQtaNo"/>
+</div>
+<div>
+<h4 class="font-bold text-sm text-on-surface">Adrian Wijaya</h4>
+<p class="text-xs text-on-surface-variant">Urban Specialist</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary">152 Leads</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider">98% Success</p>
+</div>
+</div>
+<!-- Agent Card -->
+<div class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden">
+<img alt="Agent" class="w-full h-full object-cover" data-alt="close-up profile of a professional female urban planner with natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtFoB5sezT7w8jShV6jnrudJFs9JZE-K47II0gvv5a0l27pQkSIOm-BmPRrQXaUuVheRfkJZS6udvwwsrnlF35CTm3GdZkkkQVQezBaQ_tGturI1jzfBY1KhhL8v36KTVeMpqfULNXMb66j8-xIMdOIdv5QRRe5DXRFGOn_c2fM0U5Vgkk8tZ0ANr7QgyfL-wMB30RzBlfRUH47TkhpQUR7AADMZDTMgGBJtcT6dV44LmPtdgfNWCQaFr1rnCCMEKalzmhjYcFoF8"/>
+</div>
+<div>
+<h4 class="font-bold text-sm text-on-surface">Siti Rahayu</h4>
+<p class="text-xs text-on-surface-variant">Eco-Consultant</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary">128 Leads</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider">94% Success</p>
+</div>
+</div>
+<!-- Agent Card -->
+<div class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden">
+<img alt="Agent" class="w-full h-full object-cover" data-alt="portrait of a senior male horticulturist in a garden setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJJEHlvnBQlWz-hjQ3V1TLV_khf8VGl48CEQkPERshoQ0z8U0MkPniFAlkAdAeim46BK3lzwhw1bp5j3vofdXs8aACeqtkawadT0XnVj-_RMKvjk_yUFzLWwsjxm1NPMPsTQi1dNUlNYoTIov9dWj06vzDwsUgKN4HW_ad5eLV0dGITJ1vU0JtgeN9HbhkQ532Ci92xGg--URxIQm4ntd6agW77cqTqVF1xekrUIakWcEmqP_hvHdUUEvmQ3cs_Nq8t9WF-835aT8"/>
+</div>
+<div>
+<h4 class="font-bold text-sm text-on-surface">Bambang Susanto</h4>
+<p class="text-xs text-on-surface-variant">Senior Botanist</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary">115 Leads</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider">91% Success</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Analytics Report Section -->
+<section class="bg-primary/5 p-8 rounded-2xl border border-primary/10 relative overflow-hidden">
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="flex items-start gap-6 relative z-10">
+<div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-white shrink-0">
+<span class="material-symbols-outlined text-2xl">auto_awesome</span>
+</div>
+<div class="space-y-4">
+<div>
+<h3 class="text-xl font-bold text-on-surface">AI Analytics Report</h3>
+<p class="text-sm text-on-surface-variant">Automated insights based on last 30 days of ecosystem activity</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-white/80 p-5 rounded-xl border border-white">
+<h4 class="text-xs font-black uppercase text-primary mb-2 tracking-widest">Growth Trend Detected</h4>
+<p class="text-sm text-on-surface leading-relaxed">
+                                    Organic traffic has surged by <span class="font-bold text-primary">14.5%</span> in the Jakarta Barat corridor. Recommend increasing agent allocation for the "Eco-Vertical" housing category to capitalize on high intent signals.
+                                </p>
+</div>
+<div class="bg-white/80 p-5 rounded-xl border border-white">
+<h4 class="text-xs font-black uppercase text-tertiary mb-2 tracking-widest">Efficiency Alert</h4>
+<p class="text-sm text-on-surface leading-relaxed">
+                                    Paid Ads ROI is plateauing. Current CPAL is <span class="font-bold text-on-surface">$12.40</span>. AI suggests shifting budget towards "Retargeting: High LTV" to optimize conversion from the existing pool of 42k visitors.
+                                </p>
+</div>
+</div>
+<button class="inline-flex items-center gap-2 bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-bold text-sm hover:opacity-90 active:scale-95 transition-all">
+<span>Generate Full PDF Report</span>
+<span class="material-symbols-outlined text-sm">download</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Botanical Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ecfee4",
+                        "surface-tint": "#2a6c2c",
+                        "on-primary-fixed": "#004b0f",
+                        "primary-container": "#acf4a4",
+                        "background": "#f7f9ff",
+                        "secondary-dim": "#475744",
+                        "surface-container": "#e8eef7",
+                        "surface": "#f7f9ff",
+                        "primary-dim": "#1d5f21",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#eeefac",
+                        "surface-dim": "#d2dbe6",
+                        "on-secondary-fixed": "#344331",
+                        "primary-fixed": "#acf4a4",
+                        "on-tertiary": "#fcfdb9",
+                        "on-secondary-container": "#465643",
+                        "on-primary-container": "#1b5e20",
+                        "tertiary-fixed": "#fcfeb9",
+                        "inverse-primary": "#b2faa9",
+                        "error-container": "#fd795a",
+                        "surface-container-low": "#eff4fc",
+                        "on-secondary-fixed-variant": "#50604c",
+                        "on-tertiary-container": "#60622d",
+                        "inverse-surface": "#0a0f13",
+                        "secondary-container": "#d6e8ce",
+                        "on-tertiary-fixed-variant": "#6b6d37",
+                        "tertiary-container": "#fcfeb9",
+                        "outline-variant": "#aab3bd",
+                        "on-tertiary-fixed": "#4e501d",
+                        "outline": "#737c85",
+                        "secondary-fixed-dim": "#c8dac1",
+                        "surface-container-highest": "#dae3ef",
+                        "primary-fixed-dim": "#9fe697",
+                        "surface-variant": "#dae3ef",
+                        "tertiary": "#60622d",
+                        "on-error-container": "#6e1400",
+                        "on-primary": "#eaffe2",
+                        "primary": "#2a6c2c",
+                        "error": "#a73b21",
+                        "surface-container-high": "#e2e9f2",
+                        "on-surface": "#2b333c",
+                        "on-surface-variant": "#576069",
+                        "on-primary-fixed-variant": "#266829",
+                        "on-background": "#2b333c",
+                        "surface-bright": "#f7f9ff",
+                        "secondary": "#53634f",
+                        "on-error": "#fff7f6",
+                        "error-dim": "#791903",
+                        "secondary-fixed": "#d6e8ce",
+                        "tertiary-dim": "#545622",
+                        "inverse-on-surface": "#999da3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-screen w-64 z-40 bg-[#f7f9ff] border-r border-gray-100 flex flex-col">
+<div class="p-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary" data-icon="potted_plant">potted_plant</span>
+</div>
+<div>
+<h1 class="text-[#2a6c2c] font-extrabold text-xl tracking-tighter">Botanical Admin</h1>
+<p class="text-[10px] uppercase tracking-wider font-bold text-on-surface-variant">Urban Conservatory</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 mt-4">
+<!-- Active Tab: Dashboard -->
+<a class="flex items-center gap-3 px-6 py-3 text-[#2a6c2c] font-bold border-r-4 border-[#2a6c2c] bg-white/50 transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-headline">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-[#2b333c] font-medium hover:bg-gray-100 transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+<span class="font-headline">Agent Management</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-[#2b333c] font-medium hover:bg-gray-100 transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+<span class="font-headline">Locations</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-[#2b333c] font-medium hover:bg-gray-100 transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-headline">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-[#2b333c] font-medium hover:bg-gray-100 transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="bar_chart">bar_chart</span>
+<span class="font-headline">Reports</span>
+</a>
+</nav>
+<div class="p-6 mt-auto">
+<div class="p-4 rounded-xl bg-primary-container/30 border border-primary-container">
+<p class="text-xs font-bold text-on-primary-container mb-2">PRO PLAN ACTIVE</p>
+<div class="w-full bg-white/50 rounded-full h-1.5 mb-2">
+<div class="bg-primary h-1.5 rounded-full w-3/4"></div>
+</div>
+<p class="text-[10px] text-on-surface-variant">Using 75% of assigned plant nodes.</p>
+</div>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 left-64 h-16 bg-white/80 backdrop-blur-md border-b border-gray-100 flex items-center justify-between px-8 z-30 shadow-sm">
+<div class="flex items-center flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-highest border-none rounded-full text-sm focus:ring-2 focus:ring-primary/20 placeholder:text-on-surface-variant/60" placeholder="Search agents, regions, or analytics..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container transition-colors relative active:scale-95">
+<span class="material-symbols-outlined text-on-surface" data-icon="notifications">notifications</span>
+<span class="absolute top-2.5 right-2.5 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container transition-colors active:scale-95">
+<span class="material-symbols-outlined text-on-surface" data-icon="help">help</span>
+</button>
+<div class="h-8 w-[1px] bg-gray-200 mx-2"></div>
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-bold leading-none">Admin User</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider font-medium">Head Curator</p>
+</div>
+<img alt="Admin User Profile" class="w-10 h-10 rounded-full border-2 border-primary/20 object-cover" data-alt="professional portrait of a middle-aged male administrator with a clean-cut look and friendly expression, minimalist studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgI2EVW_W9kkc22JuUChgzAhaJ365UL8ZS8ReadZFdokHcTJSKLT2VHnuh4W_PXgKaQDMD3JAxhAb1TZsQPUXif6ajOXwRaquXt8DZUouAldgAhwWV0zYLWDCuX-hTvw0yeWvNiwPWfOaCvvrGGdd2XwpKOysQW5Qacq-tUaWZvBrmOVznCMsAYGJATxrMOy2oMOzJJDUJhQRWKe5aPZO8HLbmrHdAORXsEdW0TmI1TzKuZyImo66cRgS2w2ZRLB7tJv8JLCr7Nq0"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 pb-12 px-8 min-h-screen">
+<!-- Welcome Section -->
+<div class="mb-10">
+<h2 class="text-3xl font-extrabold text-on-surface tracking-tighter mb-1">Agent Locator Dashboard</h2>
+<p class="text-on-surface-variant">Monitoring the growth of our urban conservatory network across 34 provinces.</p>
+</div>
+<!-- Overview Stats: Bento Grid Style -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-transparent hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary-container rounded-lg">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="groups">groups</span>
+</div>
+<span class="text-[10px] font-bold text-primary px-2 py-1 bg-primary/10 rounded-full">+4.2%</span>
+</div>
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-wider mb-1">Total Agents</p>
+<h3 class="text-2xl font-extrabold text-on-surface">1,248</h3>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-transparent hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-secondary-container rounded-lg">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="map">map</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-wider mb-1">Active Provinces</p>
+<h3 class="text-2xl font-extrabold text-on-surface">34</h3>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-transparent hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-tertiary-container rounded-lg">
+<span class="material-symbols-outlined text-on-tertiary-container" data-icon="ads_click">ads_click</span>
+</div>
+<span class="text-[10px] font-bold text-primary px-2 py-1 bg-primary/10 rounded-full">+12.5k</span>
+</div>
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-wider mb-1">Marketplace Clicks</p>
+<h3 class="text-2xl font-extrabold text-on-surface">15.2k</h3>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-transparent hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-error-container/20 rounded-lg">
+<span class="material-symbols-outlined text-error" data-icon="pending_actions">pending_actions</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-wider mb-1">New Requests</p>
+<h3 class="text-2xl font-extrabold text-on-surface">12</h3>
+</div>
+</div>
+<!-- Main Content Area: Asymmetric Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Agent Management Table: 2/3 Width -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-2xl shadow-sm overflow-hidden">
+<div class="p-6 flex items-center justify-between border-b border-gray-50">
+<h3 class="font-extrabold text-xl tracking-tight">Recent Agent Activity</h3>
+<div class="flex gap-2">
+<button class="px-4 py-2 rounded-full bg-surface-container-high text-xs font-bold text-on-surface flex items-center gap-2 active:scale-95">
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span> Filter
+                        </button>
+<button class="px-4 py-2 rounded-full bg-primary text-xs font-bold text-on-primary flex items-center gap-2 shadow-sm hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="person_add">person_add</span> Add Agent
+                        </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Agent Name</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Location</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Status</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-50">
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="Ridwan Suyono" class="w-10 h-10 rounded-full object-cover" data-alt="portrait of a professional man in his 30s with short hair wearing a linen shirt, natural outdoor garden lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdw7di8kiRcB-9rGO0BSQxisso3Jg3qSWczhyR1XLV3_MV8muhL92I57mU46GQNXzr6OY0qidJ2YuqmZ4OAPcyahpWKUn0c_PuD3Pw_fz7lZCQcSIAYIkgvtVK9Ys7HlA7HnOgQ7MLKKK8Ug8ykZNbBw-qBwZVGdh_rfhB8YSO1HlCEW4DAODxiqyRGE9h-J_Ji1-mc-20v1Dwzk06MhBaTfT8Nt5l6mHQ9eHlF_R9an9cMV4ZWxzT4WirEZOTer7jhptlqmj68xM"/>
+<div>
+<p class="font-bold text-sm">Ridwan Suyono</p>
+<p class="text-xs text-on-surface-variant">ridwan.s@botanical.io</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<p class="text-sm font-medium">Denpasar, Bali</p>
+<p class="text-[10px] text-on-surface-variant">ID: BA-8829</p>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full bg-primary-container text-on-primary-container text-[10px] font-bold uppercase tracking-wider">Active</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 rounded-lg hover:bg-surface-container-high transition-colors active:scale-95" title="Edit Agent">
+<span class="material-symbols-outlined text-sm text-on-surface-variant" data-icon="edit">edit</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-surface-container-high transition-colors active:scale-95" title="Manage Marketplace">
+<span class="material-symbols-outlined text-sm text-on-surface-variant" data-icon="link">link</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="I Dewa Putu Wijaya Kusuma" class="w-10 h-10 rounded-full object-cover" data-alt="portrait of a dignified older indonesian man with graying hair and a warm smile, indoor office lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALCjbp7AbFDrYPrq7nef7YcNtQ3C3BAdUs9io0-xn5NGqKNBHeKk856Xy1wjosPqPb1EaFxzHqZRZrSl5MK-DgPpm08Fyd8woBsbsKduVVsnCXNlSOQJz_Xlx-JD-urRJr5fd3q7AjshtXkReRhI7gVQO9yNEO7j2Htl3VJ40feTpMjbtWbSjJjPvvFTWKLDYfB2ZkN-BaFz0LDfMjPY3JUxhc-bzkm4Nb-5ulw-mXz_xY744tyGLSmdFDpUgkocuzWR4NqTCsUk0"/>
+<div>
+<p class="font-bold text-sm">I Dewa Putu Wijaya Kusuma</p>
+<p class="text-xs text-on-surface-variant">dewa.wijaya@botanical.io</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<p class="text-sm font-medium">Ubud, Bali</p>
+<p class="text-[10px] text-on-surface-variant">ID: BA-9102</p>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full bg-tertiary-container text-on-tertiary-container text-[10px] font-bold uppercase tracking-wider">Pending</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 rounded-lg hover:bg-surface-container-high transition-colors active:scale-95">
+<span class="material-symbols-outlined text-sm text-on-surface-variant" data-icon="edit">edit</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-surface-container-high transition-colors active:scale-95">
+<span class="material-symbols-outlined text-sm text-on-surface-variant" data-icon="link">link</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="Sari Lestari" class="w-10 h-10 rounded-full object-cover" data-alt="portrait of a young female professional in a modern botanical studio, soft natural light, focused and energetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9wsfVOkGT5Oz6HgXtz3-yNoADI9M5H1DRVidjn2WcnfFZ0WxvIVOkUdWaSk4NHzXY5hucZJXSA1Avp-Z7DpPr98fM_jZtFmouCKYCMt2dA5FhM9necF9upTAYdsW9VSGuq3xHlB0nFBT734cbfqAfAXJelFuBZylfj2hk6r1wKl8NSzaFMsVO2q2TMMoJdnKLC-BZSj5IxHFcXKNP8WG5SdISW2FCMOsADvPeaBnTfRK3M-wMv4XFfwVliL_yxW5999tL1a6kYz4"/>
+<div>
+<p class="font-bold text-sm">Sari Lestari</p>
+<p class="text-xs text-on-surface-variant">sari.l@botanical.io</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<p class="text-sm font-medium">Surabaya, East Java</p>
+<p class="text-[10px] text-on-surface-variant">ID: BA-7731</p>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full bg-primary-container text-on-primary-container text-[10px] font-bold uppercase tracking-wider">Active</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 rounded-lg hover:bg-surface-container-high transition-colors active:scale-95">
+<span class="material-symbols-outlined text-sm text-on-surface-variant" data-icon="edit">edit</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-surface-container-high transition-colors active:scale-95">
+<span class="material-symbols-outlined text-sm text-on-surface-variant" data-icon="link">link</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 bg-surface-container-low/30 border-t border-gray-50 flex justify-between items-center">
+<p class="text-[10px] font-bold text-on-surface-variant">SHOWING 3 OF 1,248 AGENTS</p>
+<div class="flex gap-1">
+<button class="w-8 h-8 rounded bg-white border border-gray-100 flex items-center justify-center text-xs font-bold text-on-surface-variant hover:bg-gray-50 active:scale-95">1</button>
+<button class="w-8 h-8 rounded border border-transparent flex items-center justify-center text-xs font-bold text-on-surface-variant hover:bg-gray-100 active:scale-95">2</button>
+<button class="w-8 h-8 rounded border border-transparent flex items-center justify-center text-xs font-bold text-on-surface-variant hover:bg-gray-100 active:scale-95">3</button>
+<span class="flex items-center px-2 text-on-surface-variant">...</span>
+<button class="w-8 h-8 rounded border border-transparent flex items-center justify-center text-xs font-bold text-on-surface-variant hover:bg-gray-100 active:scale-95">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Regional Growth & Map: 1/3 Width -->
+<div class="space-y-8">
+<!-- Mini Map / Location Preview -->
+<div class="bg-surface-container-lowest rounded-2xl shadow-sm overflow-hidden p-6">
+<h3 class="font-extrabold text-lg tracking-tight mb-4">Coverage Heatmap</h3>
+<div class="relative w-full h-48 rounded-xl overflow-hidden mb-4">
+<img alt="Map of Indonesia" class="w-full h-full object-cover" data-alt="abstract stylized topographic map of indonesian islands with glowing green data points representing agent locations" data-location="Indonesia" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf8E2QQr70glN0C_7tSHl3OU_pNimiXNg6_MTsxXKL4UbKbY3lbeMEbIxvuCvS6HQ9Kd9nr5zBIfjOfiymYHSk8mnq6gDRzlNVRTsEGGLgYUzT0smhxUAv2kmVCEYLEuGo5UaPILPG4EcnUtckZG56pMljss1m7GSd5hcW3qp0cOqiOhpJhn1HMUWnrqnuvGWbjMtZTD-lMbW0mPBviabSrwBbstyoH7OeEzzybT_aNZ_zBv1ngy29TGORF30rrvWwYtDWySFxD8c"/>
+<div class="absolute inset-0 bg-primary/10 pointer-events-none"></div>
+<div class="absolute bottom-4 right-4 glass-effect px-4 py-2 rounded-full shadow-lg flex items-center gap-2 border border-white/20">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-[10px] font-bold text-on-primary-container">Live Operations</span>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<span class="text-xs font-medium text-on-surface">Java Central</span>
+<span class="text-xs font-bold text-primary">420 Agents</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full w-[85%]"></div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-xs font-medium text-on-surface">Bali &amp; NTT</span>
+<span class="text-xs font-bold text-primary">315 Agents</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full w-[65%]"></div>
+</div>
+</div>
+</div>
+<!-- Notifications/Alerts Sidebar Component -->
+<div class="bg-[#2a6c2c] rounded-2xl shadow-xl p-6 text-on-primary">
+<h3 class="font-headline font-bold text-lg mb-4">System Update</h3>
+<p class="text-sm opacity-90 leading-relaxed mb-6">Marketplace links for North Sumatra region have been successfully synchronized with the main database.</p>
+<button class="w-full py-3 bg-white text-primary font-bold rounded-xl text-sm transition-transform active:scale-95 shadow-lg">
+                        View Audit Log
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button - Supressed on this Dashboard per rules if not primary action -->
+</body></html>

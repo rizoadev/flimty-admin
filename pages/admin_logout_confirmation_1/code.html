@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Logout Confirmation - Botanical Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#dae3ef",
+                        "primary-fixed-dim": "#9fe697",
+                        "secondary-fixed-dim": "#c8dac1",
+                        "on-primary": "#eaffe2",
+                        "tertiary": "#60622d",
+                        "on-error-container": "#6e1400",
+                        "surface-variant": "#dae3ef",
+                        "tertiary-container": "#fcfeb9",
+                        "outline": "#737c85",
+                        "outline-variant": "#aab3bd",
+                        "on-tertiary-fixed": "#4e501d",
+                        "surface-bright": "#f7f9ff",
+                        "secondary": "#53634f",
+                        "on-surface-variant": "#576069",
+                        "on-primary-fixed-variant": "#266829",
+                        "on-background": "#2b333c",
+                        "inverse-on-surface": "#999da3",
+                        "tertiary-dim": "#545622",
+                        "secondary-fixed": "#d6e8ce",
+                        "on-error": "#fff7f6",
+                        "error-dim": "#791903",
+                        "primary": "#2a6c2c",
+                        "surface-container-high": "#e2e9f2",
+                        "on-surface": "#2b333c",
+                        "error": "#a73b21",
+                        "tertiary-fixed-dim": "#eeefac",
+                        "surface-dim": "#d2dbe6",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#e8eef7",
+                        "surface": "#f7f9ff",
+                        "primary-dim": "#1d5f21",
+                        "primary-fixed": "#acf4a4",
+                        "on-tertiary": "#fcfdb9",
+                        "on-secondary-container": "#465643",
+                        "on-primary-container": "#1b5e20",
+                        "on-secondary-fixed": "#344331",
+                        "background": "#f7f9ff",
+                        "on-primary-fixed": "#004b0f",
+                        "primary-container": "#acf4a4",
+                        "on-secondary": "#ecfee4",
+                        "surface-tint": "#2a6c2c",
+                        "secondary-dim": "#475744",
+                        "secondary-container": "#d6e8ce",
+                        "on-tertiary-container": "#60622d",
+                        "inverse-surface": "#0a0f13",
+                        "on-tertiary-fixed-variant": "#6b6d37",
+                        "surface-container-low": "#eff4fc",
+                        "error-container": "#fd795a",
+                        "tertiary-fixed": "#fcfeb9",
+                        "inverse-primary": "#b2faa9",
+                        "on-secondary-fixed-variant": "#50604c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .primary-gradient {
+            background: linear-gradient(135deg, #2a6c2c 0%, #1d5f21 100%);
+        }
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            background: rgba(247, 249, 255, 0.8);
+        }
+        .ambient-shadow-lg {
+            box-shadow: 0px 12px 32px rgba(43, 51, 60, 0.06);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- Sidebar suppressed for focused logout flow, but provided as background context for the admin portal feeling -->
+<div class="flex min-h-screen">
+<!-- SideNavBar Mockup for Context (Blur/Overlay will cover it) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col py-4 z-10 h-screen w-64 border-r border-slate-200 bg-[#f7f9ff]">
+<div class="px-6 mb-8"><img alt="Flimty Logo" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uh-wjZKE9hqU7S9qZIgozjSgaPCTFSazFhgmFhJ4tSRXiyG_-MzGrfo_QwgMeT_6ONG5gOggaChF1Woa8orvSigIQU-GyyqWIWM6_P-qlIMEyUFtmAqjgY94A9CC-qylw2MhvS2Ir1pQr_yg8tnXtmmHnX3Ot10EJdoRm7DxEwXTX8cXaJCbP9hTmGlg0_GnpRDVLK8AVTcT2G9yBUEnLY6C81FPUFiBlLb-sgEbvmjZOFJva426e1haaIBBQvN-oFg1tbu2UlBiA"/></div>
+<nav class="flex-1 px-2 space-y-1">
+<div class="text-slate-600 mx-2 my-1 px-4 py-3 flex items-center gap-3 rounded-lg">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</div>
+<div class="text-slate-600 mx-2 my-1 px-4 py-3 flex items-center gap-3 rounded-lg">
+<span class="material-symbols-outlined">group</span>
+<span class="text-sm font-medium">Users</span>
+</div>
+<div class="text-slate-600 mx-2 my-1 px-4 py-3 flex items-center gap-3 rounded-lg">
+<span class="material-symbols-outlined">support_agent</span>
+<span class="text-sm font-medium">Agents</span>
+</div>
+<div class="text-slate-600 mx-2 my-1 px-4 py-3 flex items-center gap-3 rounded-lg">
+<span class="material-symbols-outlined">web</span>
+<span class="text-sm font-medium">Landing Content</span>
+</div>
+</nav>
+<div class="px-2 mt-auto border-t border-slate-100 pt-4">
+<div class="text-slate-600 mx-2 my-1 px-4 py-3 flex items-center gap-3 rounded-lg">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="text-sm font-medium">Profile</span>
+</div>
+<!-- Active Item for Logout Context -->
+<div class="bg-[#2a6c2c] text-white rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 shadow-md">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">logout</span>
+<span class="text-sm font-medium">Logout</span>
+</div>
+</div>
+</aside>
+<!-- Main Workspace (Blured) -->
+<main class="flex-1 ml-64 p-8 opacity-40 blur-sm pointer-events-none">
+<header class="flex justify-between items-center mb-8">
+<div>
+<h2 class="text-2xl font-headline font-extrabold text-on-surface">Dashboard Overview</h2>
+<p class="text-on-surface-variant">System health and nursery analytics.</p>
+</div>
+</header>
+<!-- Bento Grid Mockup -->
+<div class="grid grid-cols-12 gap-6">
+<div class="col-span-8 h-64 bg-surface-container-lowest rounded-xl shadow-sm p-6"></div>
+<div class="col-span-4 h-64 bg-surface-container-lowest rounded-xl shadow-sm p-6"></div>
+<div class="col-span-4 h-96 bg-surface-container-lowest rounded-xl shadow-sm p-6"></div>
+<div class="col-span-8 h-96 bg-surface-container-lowest rounded-xl shadow-sm p-6"></div>
+</div>
+</main>
+<!-- Modal Overlay -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-on-background/30 backdrop-blur-md">
+<!-- Confirmation Dialog -->
+<div class="w-full max-w-md bg-surface-container-lowest rounded-2xl overflow-hidden ambient-shadow-lg transform transition-all border border-outline-variant/10">
+<!-- Editorial Image Header -->
+<div class="h-48 w-full bg-surface-container-highest relative overflow-hidden">
+<img alt="Botanical Texture" class="w-full h-full object-cover opacity-80" data-alt="Close-up of vibrant green monstera leaf with soft morning light and delicate dew drops creating a fresh natural texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc59Hl30YnohdVR6E60uB9JyJlHstmLlAPbDFvNuc9vW5fYhnGN0dsNh01LWNY4SSx3_Hr2iwzvv5hcMXzhF1pSamEAyH3hJAXL5CXXCkveAtc9G3R1dsufYqsKnElmNKuhXdupVMuSxD_uwIir854_munMfgO3bFoZUHHSmHliri9xwyWsPLThYq5jnhjLH79bHsHkDiplOxQAgdX_ESW5SOZTFJ6aQz-srS8JJIyYOEzZpcYis455CW9aDvS5oW9H5UdviicK74"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+<div class="absolute top-4 right-4 bg-white/20 backdrop-blur-md p-2 rounded-full border border-white/30 text-white">
+<span class="material-symbols-outlined block">psychology</span>
+</div>
+</div>
+<!-- Content Body -->
+<div class="p-8 text-center">
+<div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-surface-container-low mb-6">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<h3 class="font-headline text-2xl font-extrabold text-on-surface tracking-tighter mb-3">
+                        Are you sure you want to log out?
+                    </h3>
+<p class="font-body text-on-surface-variant text-sm leading-relaxed mb-8 px-4">
+                        Your current session will be terminated. Make sure any pending conservatory designs or agent assignments are saved.
+                    </p>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-3">
+<button class="primary-gradient text-on-primary font-headline font-bold py-4 px-6 rounded-xl shadow-md active:scale-95 transition-all duration-200 tracking-tight flex items-center justify-center gap-2">
+                            Logout
+                            <span class="material-symbols-outlined text-lg">logout</span>
+</button>
+<button class="bg-surface-container-low text-on-surface-variant font-headline font-bold py-4 px-6 rounded-xl hover:bg-surface-container-high active:scale-95 transition-all duration-200 tracking-tight">
+                            Cancel
+                        </button>
+</div>
+</div>
+<!-- Footer Metadata -->
+<div class="px-8 pb-6 text-center">
+<p class="text-[10px] font-bold text-outline-variant uppercase tracking-[0.2em]">
+                        Botanical Architect • Session Security
+                    </p>
+</div>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agent Management | Botanical Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#fcfeb9",
+                        "on-secondary-fixed-variant": "#50604c",
+                        "surface-tint": "#2a6c2c",
+                        "on-secondary-container": "#465643",
+                        "inverse-primary": "#b2faa9",
+                        "surface-container-highest": "#dae3ef",
+                        "error-dim": "#791903",
+                        "error": "#a73b21",
+                        "on-error-container": "#6e1400",
+                        "inverse-on-surface": "#999da3",
+                        "tertiary-fixed-dim": "#eeefac",
+                        "on-surface-variant": "#576069",
+                        "on-primary-container": "#1b5e20",
+                        "surface-container-high": "#e2e9f2",
+                        "primary-fixed": "#acf4a4",
+                        "surface-variant": "#dae3ef",
+                        "on-tertiary-fixed": "#4e501d",
+                        "on-tertiary": "#fcfdb9",
+                        "surface": "#f7f9ff",
+                        "secondary": "#53634f",
+                        "surface-container": "#e8eef7",
+                        "on-secondary-fixed": "#344331",
+                        "tertiary": "#60622d",
+                        "outline-variant": "#aab3bd",
+                        "on-primary-fixed": "#004b0f",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#2a6c2c",
+                        "surface-bright": "#f7f9ff",
+                        "secondary-container": "#d6e8ce",
+                        "secondary-dim": "#475744",
+                        "error-container": "#fd795a",
+                        "primary-dim": "#1d5f21",
+                        "on-primary": "#eaffe2",
+                        "on-error": "#fff7f6",
+                        "on-background": "#2b333c",
+                        "on-secondary": "#ecfee4",
+                        "secondary-fixed": "#d6e8ce",
+                        "on-tertiary-container": "#60622d",
+                        "on-primary-fixed-variant": "#266829",
+                        "on-tertiary-fixed-variant": "#6b6d37",
+                        "inverse-surface": "#0a0f13",
+                        "outline": "#737c85",
+                        "on-surface": "#2b333c",
+                        "primary-fixed-dim": "#9fe697",
+                        "tertiary-container": "#fcfeb9",
+                        "surface-dim": "#d2dbe6",
+                        "primary-container": "#acf4a4",
+                        "tertiary-dim": "#545622",
+                        "background": "#f7f9ff",
+                        "surface-container-low": "#eff4fc",
+                        "secondary-fixed-dim": "#c8dac1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-4 z-50 bg-[#f7f9ff] dark:bg-slate-900 h-screen w-64 border-r border-slate-200/50 dark:border-slate-800">
+<div class="mb-8 px-4 flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-icon="potted_plant">potted_plant</span>
+</div>
+<div>
+<h1 class="text-lg font-black text-[#2a6c2c] font-headline tracking-tighter">Admin Panel</h1>
+<p class="text-[10px] font-bold uppercase tracking-wider text-outline">System Control</p>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 text-[#2b333c] dark:text-slate-300 px-4 py-3 hover:bg-green-50 dark:hover:bg-green-900/20 hover:text-[#2a6c2c] active:scale-95 transition-transform rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium text-sm">Dashboard</span>
+</a>
+<!-- Agents Tab Active -->
+<a class="flex items-center gap-3 bg-[#2a6c2c] text-white rounded-lg px-4 py-3 shadow-md active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="person_search" style="font-variation-settings: 'FILL' 1;">person_search</span>
+<span class="font-medium text-sm">Agents</span>
+</a>
+<a class="flex items-center gap-3 text-[#2b333c] dark:text-slate-300 px-4 py-3 hover:bg-green-50 dark:hover:bg-green-900/20 hover:text-[#2a6c2c] active:scale-95 transition-transform rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-medium text-sm">Locations</span>
+</a>
+<a class="flex items-center gap-3 text-[#2b333c] dark:text-slate-300 px-4 py-3 hover:bg-green-50 dark:hover:bg-green-900/20 hover:text-[#2a6c2c] active:scale-95 transition-transform rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="font-medium text-sm">Analytics</span>
+</a>
+<a class="flex items-center gap-3 text-[#2b333c] dark:text-slate-300 px-4 py-3 hover:bg-green-50 dark:hover:bg-green-900/20 hover:text-[#2a6c2c] active:scale-95 transition-transform rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="database">database</span>
+<span class="font-medium text-sm">System Logs</span>
+</a>
+</nav>
+<div class="mt-auto p-4 bg-surface-container rounded-2xl">
+<p class="text-[10px] font-bold uppercase tracking-widest text-outline mb-2">Internal Tool</p>
+<button class="w-full flex items-center justify-center gap-2 bg-primary text-on-primary py-2.5 rounded-lg text-sm font-semibold active:scale-95 transition-transform shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                Add New Agent
+            </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center px-8 w-full sticky top-0 z-40 bg-[#f7f9ff] dark:bg-slate-950 w-full h-16 shadow-sm dark:shadow-none">
+<div class="flex items-center gap-6">
+<span class="text-xl font-extrabold tracking-tighter text-[#2a6c2c] dark:text-green-400 font-headline">Botanical Architect</span>
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-1.5 bg-surface-container-highest border-none rounded-full text-sm focus:ring-2 focus:ring-primary/20" placeholder="Global search..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-[#2b333c] dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-[#2b333c] dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-px bg-outline-variant/30 mx-2"></div>
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<p class="text-xs font-bold text-on-surface">Alex Rivera</p>
+<p class="text-[10px] text-outline">Network Admin</p>
+</div>
+<img alt="Admin profile" class="w-9 h-9 rounded-full object-cover border-2 border-primary/20" data-alt="close-up portrait of a professional male administrator in a modern office setting with warm natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcRolzVSQexzjys2TR_8N5ofXOPHuaZNk2IncQpR8M-V6eFF7CpHtFp37j8RW_gRgFrpbRCHPquBiMp5yDB_o-zVt_toGmPv1uQyJ7M_rETJGLtfe4S21f97y9hlVOtx-qBlbukB7ZZlUO7vJTvkez_1CADQz-nYXkeukWj9tB7Rv8lZjX8WZMEhah1c5yfhXT6RVAwWU1ytccAzD55r1iwnSnIdmpcKc4uzZ-3ZUG2g-0hiW2Jg4-TR7Jf2VYVDCAKcPfMVcLNNY"/>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-8 flex-1">
+<div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="text-[30px] font-extrabold font-headline tracking-tighter text-on-surface">Agent Management</h2>
+<p class="text-on-surface-variant max-w-lg">View and manage all registered botanical agents across the network.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2.5 bg-surface-container-high text-on-surface-variant rounded-xl font-medium text-sm hover:bg-surface-container-highest transition-colors active:scale-95">
+<span class="material-symbols-outlined text-lg" data-icon="filter_list">filter_list</span>
+                        Filter
+                    </button>
+<button class="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-br from-[#2a6c2c] to-[#1d5f21] text-white rounded-xl font-bold text-sm shadow-md hover:shadow-lg transition-all active:scale-95">
+<span class="material-symbols-outlined text-lg" data-icon="add_circle">add_circle</span>
+                        Add New Agent
+                    </button>
+</div>
+</div>
+<!-- Bento Filter & Search Strip -->
+<div class="mb-6 grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="md:col-span-2 relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors" data-icon="search">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container-lowest border-none rounded-2xl shadow-[0px_12px_32px_rgba(43,51,60,0.06)] focus:ring-2 focus:ring-primary/20 text-sm" placeholder="Find agents by name, ID, or location..." type="text"/>
+</div>
+<div class="bg-surface-container-low px-4 py-3 rounded-2xl flex items-center justify-between shadow-sm">
+<span class="text-xs font-bold uppercase tracking-wider text-outline">Active Agents</span>
+<span class="text-xl font-headline font-extrabold text-[#2a6c2c]">1,284</span>
+</div>
+<div class="bg-surface-container-low px-4 py-3 rounded-2xl flex items-center justify-between shadow-sm">
+<span class="text-xs font-bold uppercase tracking-wider text-outline">Pending Review</span>
+<span class="text-xl font-headline font-extrabold text-[#60622d]">42</span>
+</div>
+</div>
+<!-- Data Table Container -->
+<div class="bg-surface-container-lowest rounded-[24px] shadow-[0px_4px_16px_rgba(43,51,60,0.04)] overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-outline">Agent Name</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-outline">ID</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-outline">Location</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-outline">Status</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-outline">Marketplace</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-outline text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="professional headshot of a middle-aged man with a friendly smile wearing a linen shirt in front of a botanical garden" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAw1nV4HvXF-89k-YNCJ9sJJdaYi75c4RjdL4FsrCANf0__B6iai8KDPbNx6gdOEVcNcLcbs1rzbRTm_rQMCaQuRXVaZ29gTWGQxcH6-Yf9TONjp3lmslWtAJrmchp77OOsC1wQyOvYmB3SnYHEG0qdU-vfBVb_cO6fwiOmmrYe_6uDyxOpQte59uTmKmca2S0xiFtx-tSvcD61gEmthUOpl1eXWViD8H5IYTIej64qUKZikhpERxFgQYIPQqMrqRGSgJtBi3Y2gKA"/>
+<div>
+<p class="text-sm font-semibold text-on-surface">Ridwan Suyono</p>
+<p class="text-xs text-outline">ridwan.s@agent.botanical.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm font-medium text-on-surface-variant font-mono">BA-99201</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">Jakarta Selatan, DKI Jakarta</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary-container text-on-primary-container">
+                                        ACTIVE
+                                    </span>
+</td>
+<td class="px-6 py-4">
+<div class="flex gap-2">
+<button class="w-7 h-7 flex items-center justify-center rounded-lg bg-surface-container-high text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-base" data-icon="share">share</span>
+</button>
+<button class="w-7 h-7 flex items-center justify-center rounded-lg bg-surface-container-high text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-base" data-icon="chat">chat</span>
+</button>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-1">
+<button class="p-2 text-outline hover:text-primary transition-colors active:scale-90"><span class="material-symbols-outlined text-xl" data-icon="edit">edit</span></button>
+<button class="p-2 text-outline hover:text-error transition-colors active:scale-90"><span class="material-symbols-outlined text-xl" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="portrait of an Indonesian woman smiling elegantly in a brightly lit studio with subtle green plants in the background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRz0zTG3t78fB3dpg6la3AR11FgzEWj5edYHjBoj92xnO1RqDIbNfMADWvGpSHceoB1KUQIR-7VqpGW16fPqQaQSYVmSOXhrBpWszlUM9wIk5l--32ccXDNhVDY0UGGCib3vNrQL-IpT11ZaYerJqS8eATtCHqRVvbzlbPwKNBJk-ltUEJ70EV54sf6YxAsQLgnssWjqysTO5Lt0wjOaq8dk3wW7F_-Nh2HOlxvPKYQH8AGlfiJAgu0hbSdpXrhtKV93beSAQx_C4"/>
+<div>
+<p class="text-sm font-semibold text-on-surface">Sari Lestari</p>
+<p class="text-xs text-outline">sari.l@agent.botanical.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm font-medium text-on-surface-variant font-mono">BA-88129</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">Bandung, Jawa Barat</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-tertiary-container text-on-tertiary-container">
+                                        PENDING
+                                    </span>
+</td>
+<td class="px-6 py-4">
+<div class="flex gap-2">
+<button class="w-7 h-7 flex items-center justify-center rounded-lg bg-surface-container-high text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-base" data-icon="store">store</span>
+</button>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-1">
+<button class="p-2 text-outline hover:text-primary transition-colors active:scale-90"><span class="material-symbols-outlined text-xl" data-icon="edit">edit</span></button>
+<button class="p-2 text-outline hover:text-error transition-colors active:scale-90"><span class="material-symbols-outlined text-xl" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-outline font-bold text-xs uppercase">IDP</div>
+<div>
+<p class="text-sm font-semibold text-on-surface">I Dewa Putu Wijaya Kusuma</p>
+<p class="text-xs text-outline">dewa.putu@agent.botanical.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm font-medium text-on-surface-variant font-mono">BA-77312</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">Denpasar, Bali</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary-container text-on-primary-container">
+                                        ACTIVE
+                                    </span>
+</td>
+<td class="px-6 py-4">
+<div class="flex gap-2">
+<button class="w-7 h-7 flex items-center justify-center rounded-lg bg-surface-container-high text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-base" data-icon="public">public</span>
+</button>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-1">
+<button class="p-2 text-outline hover:text-primary transition-colors active:scale-90"><span class="material-symbols-outlined text-xl" data-icon="edit">edit</span></button>
+<button class="p-2 text-outline hover:text-error transition-colors active:scale-90"><span class="material-symbols-outlined text-xl" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="headshot of a young professional male in a clean grey polo shirt with a soft-focus office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNTfdKxlDTMoSbfZxNEpbBAMaB_nbu3lLnWpA5g5_Z7MtZfzHhR9f1gat4zMKw-lZn56KG3ZgdpTr_bi1gfrnALW3Wa-AsiHonC--kFmdCiwYpGat516uRVMTqrVz7Lb_zBbKh9OjrNBzGu9Mq2fqY6h_OZvQVWrrb0wQmOoGJJbjrx0BkFKGcZlJh6p5MFaR_4gpVAPJUUVSd60Rn557rAqqcqakc4MWzfAMibSKpRD8sT5BA8-ugMOTOs9Y1bezuRAaPsR3aPj8"/>
+<div>
+<p class="text-sm font-semibold text-on-surface">Budi Hartono</p>
+<p class="text-xs text-outline">budi.h@agent.botanical.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm font-medium text-on-surface-variant font-mono">BA-66432</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">Surabaya, Jawa Timur</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-error-container/20 text-error">
+                                        SUSPENDED
+                                    </span>
+</td>
+<td class="px-6 py-4">
+<div class="flex gap-2">
+<span class="text-xs text-outline italic">None</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-1">
+<button class="p-2 text-outline hover:text-primary transition-colors active:scale-90"><span class="material-symbols-outlined text-xl" data-icon="edit">edit</span></button>
+<button class="p-2 text-outline hover:text-error transition-colors active:scale-90"><span class="material-symbols-outlined text-xl" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="cheerful woman with glasses looking at camera in a bright conservatory with hanging ferns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2orCLtPCv9e6e2_9MqmKVHqkULdgbVi8jMO9KBzcuWNkKMNg7TPQq3v8RM7FEfCXYv9OKNfjVgwdzA3ifTANcp10GrnA37Ztw8O3-PusbpjeIa2vr4hRRlLG_CXXz429zHCbltzoSzxaX-49NTtxSHjSqlDY-bOQwKq5LcLGtLW4gTpZ4rIjZh-48D7L2CwphRi2SEc7xXnVPYSFTNrjuBRJbJJIxcbl-4cyZVJyRRN2DqejSTHFiJiw7eFpLP3CVyLGv6NrGZpY"/>
+<div>
+<p class="text-sm font-semibold text-on-surface">Maya Putri</p>
+<p class="text-xs text-outline">maya.p@agent.botanical.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm font-medium text-on-surface-variant font-mono">BA-55110</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">Yogyakarta, DIY</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary-container text-on-primary-container">
+                                        ACTIVE
+                                    </span>
+</td>
+<td class="px-6 py-4">
+<div class="flex gap-2">
+<button class="w-7 h-7 flex items-center justify-center rounded-lg bg-surface-container-high text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-base" data-icon="shopping_bag">shopping_bag</span>
+</button>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-1">
+<button class="p-2 text-outline hover:text-primary transition-colors active:scale-90"><span class="material-symbols-outlined text-xl" data-icon="edit">edit</span></button>
+<button class="p-2 text-outline hover:text-error transition-colors active:scale-90"><span class="material-symbols-outlined text-xl" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 6 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-outline font-bold text-xs uppercase">AM</div>
+<div>
+<p class="text-sm font-semibold text-on-surface">Andi Mahendra</p>
+<p class="text-xs text-outline">andi.m@agent.botanical.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm font-medium text-on-surface-variant font-mono">BA-44229</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">Medan, Sumatera Utara</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary-container text-on-primary-container">
+                                        ACTIVE
+                                    </span>
+</td>
+<td class="px-6 py-4">
+<div class="flex gap-2">
+<button class="w-7 h-7 flex items-center justify-center rounded-lg bg-surface-container-high text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-base" data-icon="link">link</span>
+</button>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-1">
+<button class="p-2 text-outline hover:text-primary transition-colors active:scale-90"><span class="material-symbols-outlined text-xl" data-icon="edit">edit</span></button>
+<button class="p-2 text-outline hover:text-error transition-colors active:scale-90"><span class="material-symbols-outlined text-xl" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 7 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="headshot of a confident professional woman with a warm expression in a corporate setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_cvyMMCRIUN4B5oELqhB3wiXULTnNUvn1Qoyn5lAqbd1V_3Wr9eFmJp1ZowWQMWtgdRD4oGjedBx1Fz3e1lvZFRFNB7zWgu8bC3oDUch0kbuszixq6eTB4GsW0SR8iHxD45fs7GMg_bKpTpqKrX0NS5pVmnWa1UWlDBDXgQCWU_WIQvYqazOdrLhtlucp2WLAWOl3lDfG0eMNgJaSPwe8p3tAL4teoMFRDRUpOGoHyOjoaCGb38wOxdYLW43kydkvEKN1y--lfeQ"/>
+<div>
+<p class="text-sm font-semibold text-on-surface">Nina Kurnia</p>
+<p class="text-xs text-outline">nina.k@agent.botanical.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm font-medium text-on-surface-variant font-mono">BA-33908</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">Makassar, Sulawesi Selatan</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-tertiary-container text-on-tertiary-container">
+                                        PENDING
+                                    </span>
+</td>
+<td class="px-6 py-4">
+<div class="flex gap-2">
+<button class="w-7 h-7 flex items-center justify-center rounded-lg bg-surface-container-high text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-base" data-icon="sms">sms</span>
+</button>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-1">
+<button class="p-2 text-outline hover:text-primary transition-colors active:scale-90"><span class="material-symbols-outlined text-xl" data-icon="edit">edit</span></button>
+<button class="p-2 text-outline hover:text-error transition-colors active:scale-90"><span class="material-symbols-outlined text-xl" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 8 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-outline font-bold text-xs uppercase">HW</div>
+<div>
+<p class="text-sm font-semibold text-on-surface">Hendra Wijaya</p>
+<p class="text-xs text-outline">hendra.w@agent.botanical.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm font-medium text-on-surface-variant font-mono">BA-22119</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">Semarang, Jawa Tengah</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary-container text-on-primary-container">
+                                        ACTIVE
+                                    </span>
+</td>
+<td class="px-6 py-4">
+<div class="flex gap-2">
+<button class="w-7 h-7 flex items-center justify-center rounded-lg bg-surface-container-high text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-base" data-icon="call">call</span>
+</button>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-1">
+<button class="p-2 text-outline hover:text-primary transition-colors active:scale-90"><span class="material-symbols-outlined text-xl" data-icon="edit">edit</span></button>
+<button class="p-2 text-outline hover:text-error transition-colors active:scale-90"><span class="material-symbols-outlined text-xl" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="px-6 py-4 border-t border-outline-variant/10 flex items-center justify-between">
+<p class="text-xs text-outline">Showing <span class="font-bold text-on-surface">1-8</span> of <span class="font-bold text-on-surface">1,284</span> agents</p>
+<div class="flex items-center gap-1">
+<button class="p-2 text-outline hover:bg-surface-container rounded-lg transition-colors active:scale-95 disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary text-on-primary text-xs font-bold">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-surface-container text-on-surface text-xs font-medium">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-surface-container text-on-surface text-xs font-medium">3</button>
+<span class="px-1 text-outline">...</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-surface-container text-on-surface text-xs font-medium">161</button>
+<button class="p-2 text-outline hover:bg-surface-container rounded-lg transition-colors active:scale-95">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="px-8 py-6 flex items-center justify-between mt-auto">
+<p class="text-xs text-outline">© 2024 Botanical Architect. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-xs text-outline hover:text-primary" href="#">System Status</a>
+<a class="text-xs text-outline hover:text-primary" href="#">Documentation</a>
+<a class="text-xs text-outline hover:text-primary" href="#">Support</a>
+</div>
+</footer>
+</main>
+</body></html>
