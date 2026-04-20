@@ -27,7 +27,7 @@
               <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline-variant group-focus-within:text-primary transition-colors">
                 <span class="material-symbols-outlined text-[20px]">alternate_email</span>
               </div>
-              <input v-model="form.email" class="w-full bg-surface-container-highest border-none rounded-lg py-3.5 pl-12 pr-4 text-on-surface focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all placeholder:text-outline-variant" id="login-email" name="email" placeholder="name@architect.botany" type="email" />
+              <input v-model="form.email" class="w-full bg-surface-container-highest border-none rounded-lg py-3.5 pl-12 pr-4 text-on-surface focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all placeholder:text-outline-variant" id="login-email" name="email" placeholder="name@architect.botany" type="email" required />
             </div>
           </div>
 
@@ -41,7 +41,7 @@
               <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline-variant group-focus-within:text-primary transition-colors">
                 <span class="material-symbols-outlined text-[20px]">lock</span>
               </div>
-              <input v-model="form.password" class="w-full bg-surface-container-highest border-none rounded-lg py-3.5 pl-12 pr-4 text-on-surface focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all placeholder:text-outline-variant" id="login-password" name="password" placeholder="••••••••••••" :type="showPassword ? 'text' : 'password'" />
+              <input v-model="form.password" class="w-full bg-surface-container-highest border-none rounded-lg py-3.5 pl-12 pr-4 text-on-surface focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all placeholder:text-outline-variant" id="login-password" name="password" placeholder="••••••••••••" :type="showPassword ? 'text' : 'password'" required />
               <button @click="showPassword = !showPassword" class="absolute inset-y-0 right-0 pr-4 flex items-center text-outline-variant hover:text-on-surface transition-colors" type="button">
                 <span class="material-symbols-outlined text-[20px]">{{ showPassword ? 'visibility_off' : 'visibility' }}</span>
               </button>
@@ -87,7 +87,7 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue'
+import { ref, reactive } from 'vue'
 import { useAuthStore } from '@/stores/auth'
 import { useRouter } from 'vue-router'
 
